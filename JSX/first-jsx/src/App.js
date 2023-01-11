@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 
 
@@ -8,7 +7,7 @@ function App() {
     <div className="App">
       <h1>Hello Dojo!</h1>
       <h3>Things I need to do</h3>
-      <ul id='list' onClick >
+      <ul id='list'>
         {tasks.map(task => <li>{task}</li>)}
       </ul>
     </div>
