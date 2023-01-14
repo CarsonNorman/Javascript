@@ -11,6 +11,7 @@ function Form() {
     const [passwordErrors, setPasswordErrors] = useState('')
     const [cPassword, setCPassword] = useState('')
     const [cPasswordErrors, setCPasswordErrors] = useState('')
+
     const handleFName = (e) => {
         e.preventDefault();
         if(e.target.value.length < 2 && e.target.value.length !== 0){
@@ -98,6 +99,7 @@ function Form() {
                 <p>Last Name: {lastName}</p>
                 <p>Email: {email}</p>
                 <p>Password: {password}</p>
+                
                 <p>Confirm Password: {cPassword}</p>
             </div>
         </div>
