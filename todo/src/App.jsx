@@ -1,10 +1,13 @@
 import NewTask from './components/NewTask'
 import Task from './components/Task';
 import { useState } from 'react';
+import { useEffect } from 'react';
+import { Component } from 'react';
 
 function App() {
   const [form, setForm] = useState(false)
   const [taskList, setTaskList] = useState([])
+
   const handleAdd = (task) =>{
     const temp = [...taskList, task]
     temp.map((task, idx) => { task.key = idx; task.id = idx})
@@ -12,8 +15,6 @@ function App() {
     setForm(false);
   }
   const handleDelete = (key) =>{
-    console.log('ran')
-    console.log(key)
     setTaskList(taskList.filter(task => task.key !== key))
   }
   return (
