@@ -14,7 +14,7 @@ function Pokemon(props) {
             </div>
             <div className="card-body">
                 <h5 className="card-title">{name}</h5>
-                {abilities.map((ability, idx) => <p>{ability.ability.name}  </p>)}
+                {abilities.map((ability) => <p>{ability.ability.name}  </p>)}
             </div>
 
             <button onClick={props.handleBack}>Back to list</button>
