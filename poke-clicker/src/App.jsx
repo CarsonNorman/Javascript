@@ -1,4 +1,3 @@
-import './App.css';
 import { useState } from 'react';
 import Button from './components/Button';
 import Info from './components/Info';
@@ -14,8 +13,8 @@ function App() {
   }
   }
   return (
-    <div className="App w-25 mx-auto">
-      {!clicked && <Button handleClick={handleClick}/>}
+    <div className="App w-25 mx-auto d-flex justify-content-center">
+      {!clicked && <Button  handleClick={handleClick}/>}
       {clicked && <Info/>}
     </div>
   );
