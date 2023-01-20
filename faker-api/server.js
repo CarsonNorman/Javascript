@@ -9,6 +9,7 @@ app.use( express.urlencoded({ extended: true }) );
 
 const { faker } = require('@faker-js/faker')
 
+
 const users = []
 const companies = []
 const createUser = () => {
@@ -35,7 +36,10 @@ const createCompany = () => {
     }
     return newCompany
 }
-
+app.get('/' , (req, res) =>{
+    res.json('This is working')
+}
+)
 app.get("/api/users/new", (req, res) => {
     newUser = createUser()
     users.push(newUser)
