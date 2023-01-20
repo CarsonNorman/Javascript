@@ -4,7 +4,8 @@ const port = 8000
 
 require('./config/mongoose.config')
 
-app.use(express.json(), express.urlencoded({extended: false}))
+app.use(express.json())
+
 const routes = require('./routes/jokes.route')
 routes(app)
 
