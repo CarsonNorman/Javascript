@@ -1,4 +1,4 @@
-const { json } = require('express')
+
 const Joke = require('../models/jokes.model')
 
 module.exports.findAllJokes = (req, res) => {

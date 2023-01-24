@@ -9,6 +9,4 @@ app.use(express.json())
 const routes = require('./routes/jokes.route')
 routes(app)
 
-app.listen(port, () => {
-    console.log(`Listening on ${port}`)
-})
+app.listen(port, () => console.log(`Listening on ${port}`))
