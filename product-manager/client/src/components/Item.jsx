@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 
 function Item() {
     const { id } = useParams();
-    console.log(id)
     const [product, setProduct] = useState(null)
    
 
@@ -17,9 +16,9 @@ function Item() {
             })
             .then(response => {
                 setProduct(response.data.product)
-                console.log(response.data.product)
             })
             .catch(err => console.log(err))
+            return () => controller.abort()
     }, [id])
     return (
         <div>

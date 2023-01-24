@@ -9,9 +9,12 @@ export function Main()  {
     
     
     useEffect(() => {
-        axios.get("http://localhost:8000/api/products")
+        const controller = new AbortController();
+        axios
+            .get("http://localhost:8000/api/products")
             .then(res => setData(res.data))
             .catch(err => console.log(err))
+            return () => controller.abort()
     }, [submit]);
 
     const toggleSubmit = () =>{
