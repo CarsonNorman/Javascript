@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 function Form(props) {
     const [item, setItem] = useState({})
+   
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
@@ -18,7 +19,7 @@ function Form(props) {
 
     return (
         <div>
-            <form id='form' onSubmit={handleSubmit} >
+             <form id='form' onSubmit={handleSubmit} >
                 <div className='form-group'>
                     <label htmlFor="title">Title</label>
                     <input type="text" name="title" className='form-control' id="title" onChange={e => setItem({...item, title: e.target.value})} required/>
@@ -35,6 +36,7 @@ function Form(props) {
                 </div>
                 <input className='btn btn-primary mt-3' type="submit" value="Submit" />
             </form>
+            
         </div>
     );
 }
