@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useParams, useNavigate } from "react-router-dom";
 
 function Item() {
@@ -17,25 +17,25 @@ function Item() {
             .then(response => {
                 setProduct(response.data.product)
             })
-            .catch(err =>{ 
+            .catch(err => {
                 console.log(err)
-            
+
             })
-            return () => controller.abort()
+        return () => controller.abort()
     }, [id])
 
     const handleDelete = (e) => {
         const controller = new AbortController();
         axios
-        .delete(`http://localhost:8000/api/products/${id}`, {
-            signal: controller.signal,
-        })
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
+            .delete(`http://localhost:8000/api/products/${id}`, {
+                signal: controller.signal,
+            })
+            .then(res => console.log(res))
+            .catch(err => console.log(err))
         navigate('/')
         return () => controller.abort()
-    } 
-    const handleUpdate = (e) =>{
+    }
+    const handleUpdate = (e) => {
         navigate(`/update/${id}`)
     }
     return (
@@ -51,8 +51,9 @@ function Item() {
                     <p className="card-text">${product.price}</p>
                     <p className="card-text">{product.description}</p>
                     <Link to={'/'}>Home</Link>
-                    <button onClick={handleDelete}>Delete</button>
-                    <button onClick={handleUpdate}>Update</button>
+                    <button className="btn btn-primary mt-3" onClick={handleUpdate}>Update</button>
+                    <button className="btn btn-danger mt-3" onClick={handleDelete}>Delete</button>
+
                 </div>
             }
         </div>

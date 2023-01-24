@@ -20,6 +20,18 @@ export function Main()  {
     const toggleSubmit = () =>{
         setSubmit(!submit)
     }
+    const handleDelete = (id) => {
+        const controller = new AbortController();
+        axios
+            .delete(`http://localhost:8000/api/products/${id}`, {
+                signal: controller.signal,
+            })
+            .then(res => console.log(res))
+            .catch(err => console.log(err))
+            toggleSubmit()
+        return () => controller.abort()
+    }
+
     return (
         <div className='w-25 mx-auto'>
             <Form toggleSubmit={toggleSubmit}/>
@@ -36,6 +48,7 @@ export function Main()  {
                             <h3 className='card-title' ><Link to={`/${product._id}`}>{product.title}</Link></h3>
                             <p className='card-text'>Price : ${product.price}</p>
                             <p className='card-text'>Description : {product.description}</p>
+                            <button onClick={() => handleDelete(product._id)}>Delete</button>
                         </div>
                     )
                 })}
