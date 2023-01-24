@@ -14,7 +14,7 @@ const productSchema = new Schema({
         required: [true, 'Please enter a description']
     },
     
-})
+},{timestamps: true})
 
 const Product = model('Product', productSchema)
  
