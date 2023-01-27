@@ -38,11 +38,14 @@ function Main() {
   const handleEdit = (id) => {
     navigate(`/author/edit/${id}`)
   }
+  const sortedList = authors.sort((a, b) =>
+  a.name.localeCompare(b.name));
+
   return (
     <div className="mx-auto w-25">
       {!error &&
         <div>
-          {authors.map((author, idx) => {
+          {sortedList.map((author, idx) => {
             return (
               <div key={idx} className='card my-5'>
                 <h3  className=" card-title d-flex justify-content-around" onClick={() => { navigate(`/${author._id}`) }}>{author.name}</h3>
